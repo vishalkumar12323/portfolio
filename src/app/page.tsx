@@ -21,7 +21,7 @@ export default function HeroSectionPage() {
           <p className="text-xl text-muted-foreground mb-2">Hello 👋</p>
           <h1
             className={
-              "text-3xl sm:text-5xl md:text-6xl font-extrabold px-0 py-4 bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800"
+              "text-3xl sm:text-5xl md:text-6xl font-[900] px-0 py-4 bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800"
             }
           >
             I&apos;m Vishal Kumar
