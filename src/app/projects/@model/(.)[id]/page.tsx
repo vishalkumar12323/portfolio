@@ -33,13 +33,6 @@ export default async function ProjectModel({
 
           <CardDescription className="text-[14px] md:text-[16px] mb-3">
             {project.description}
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            voluptatibus facilis distinctio aut voluptas iusto ipsam praesentium
-            fugiat, sapiente perferendis natus id velit nulla ab officiis,
-            repellendus minima ut debitis. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Voluptate ut perferendis cumque fuga
-            at, eos dolores nam ducimus! A odit cum consectetur corrupti
-            mollitia? Alias labore magnam quia pariatur minima!
           </CardDescription>
 
           <div className="mb-3">

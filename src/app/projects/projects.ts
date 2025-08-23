@@ -10,6 +10,9 @@ import photo2_1 from "./images/drivers-grid-view.png";
 import photo3 from "./images/sleepy.png";
 import photo3_1 from "./images/sleepy-login.png";
 
+import photo4 from "./images/background-1.png";
+import photo4_1 from "./images/background-2.png";
+
 export type TProjectProps = {
   id: string;
   name: string;
@@ -59,5 +62,16 @@ export const projectData: TProjectProps[] = [
     liveLink: "https://daily-sleeps.vercel.app",
     githubLink: "https://github.com/vishalkumar12323/daily-sleeps",
     tech: ["Next.js", "Next-Auth", "Postgres"],
+  },
+  {
+    id: "4",
+    name: "RGB Background Downloader",
+    src: [photo4, photo4_1],
+    description:
+      "RGB Background images generator, Download random background-color images using help with html5 canvas, css3, javascript.",
+
+    liveLink: "https://vishalkumar12323.github.io/Background-Picker",
+    githubLink: "https://github.com/vishalkumar12323/Background-Picker",
+    tech: ["Html5", "Css3", "Javascript", "HTML5 Canvas"],
   },
 ];

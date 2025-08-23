@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${open_sans.variable} ${open_sans.className} antialiased text-black dark:text-white flex flex-col min-h-screen`}
       >
         <ThemeProvider
