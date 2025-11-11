@@ -97,8 +97,8 @@ export const skills = [
   },
   {
     id: "18",
-    name: "C/C++",
+    name: "Flask",
     description:
-      "C is a general-purpose, procedural computer programming language. It's known for its efficiency, portability, and low-level access to hardware, making it a foundational language for system programming,and operating systems, C++ is higher version of c and more advance, support OOPS concepts, and It is very fast and also used in OS systems, Gaming, Software building, and embedded systems etc.",
+      "Flask is python web frame-work for building websites and api's.",
   },
 ];
