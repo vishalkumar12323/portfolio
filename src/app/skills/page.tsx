@@ -6,6 +6,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { skills } from "@/lib/data";
+import { IconType } from "react-icons";
 
 export default function ExperiencePage() {
   return (
@@ -26,7 +27,12 @@ export default function ExperiencePage() {
 
       <div className="mx-auto max-w-[110rem] mt-8 mb-8 text-center">
         {skills.map((s) => (
-          <Skill name={s.name} key={s.id} description={s.description} />
+          <Skill
+            name={s.name}
+            key={s.id}
+            description={s.description}
+            icon={s.icon}
+          />
         ))}
       </div>
     </Card>
@@ -36,9 +42,11 @@ export default function ExperiencePage() {
 const Skill = ({
   name,
   description,
+  icon: Icon,
 }: {
   name: string;
   description: string;
+  icon: IconType;
 }) => {
   return (
     <Dialog>
@@ -47,7 +55,9 @@ const Skill = ({
           {name}
         </DialogTrigger>
         <DialogContent className="bg-accent rounded-sm">
-          <DialogTitle className="font-normal text-xl">{name}</DialogTitle>
+          <DialogTitle className="font-normal text-xl flex items-center gap-2">
+            {name} <Icon className="inline" size={30} />
+          </DialogTitle>
           <p className="text-[15px]">{description}</p>
         </DialogContent>
       </span>

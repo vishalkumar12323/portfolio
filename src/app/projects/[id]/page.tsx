@@ -61,7 +61,7 @@ export default async function ProjectModel({
             variant={"outline"}
             className="rounded-sm border-gray-400 cursor-pointer shadow hover:shadow-lg transition-shadow capitalize"
           >
-            <span> go to project</span> <MoveRight />
+            <span>view live</span> <MoveRight />
           </Button>
         </Link>
         <Link href={project.githubLink ?? "#"}>
@@ -69,7 +69,7 @@ export default async function ProjectModel({
             variant={"outline"}
             className="rounded-sm border-gray-400 cursor-pointer shadow hover:shadow-lg transition-shadow capitalize"
           >
-            <span>go to source code</span> <MoveRight />
+            <span>view source code</span> <MoveRight />
           </Button>
         </Link>
       </CardAction>

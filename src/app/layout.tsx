@@ -28,12 +28,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${open_sans.variable} ${open_sans.className} antialiased text-black dark:text-white flex flex-col min-h-screen`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <div className="max-w-7xl mx-auto w-full py-2 px-4 sm:px-6 lg:px-8">
             {children}
