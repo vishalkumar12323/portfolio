@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default async function Profile() {
+export default function Profile() {
   return (
     <div className="flex-1 relative w-full max-w-md mx-auto">
       <div

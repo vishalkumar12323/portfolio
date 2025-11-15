@@ -1,19 +1,31 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, MoveRight } from "lucide-react";
-import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Profile = dynamic(() => import("@/components/main/profile"), {
-  loading: () => (
-    <div className="flex-1 relative w-full max-w-md mx-auto">
-      <Skeleton className="w-[400px] h-[400px] rounded-full shadow-md dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-r from-black/10 to-black/5" />
-    </div>
-  ),
-});
+const Profile = lazy(() => import("@/components/main/profile"));
+
+const ProfileSkeleton = () => (
+  <div className="flex-1 relative w-full max-w-md mx-auto">
+    <Skeleton className="w-[400px] h-[400px] rounded-full shadow-md dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-r from-black/10 to-black/5" />
+  </div>
+);
 
 export default function HeroSectionPage() {
+  useEffect(() => {
+    const lastVisit = localStorage.getItem("lastVisit");
+    const today = new Date().toISOString().split("T")[0];
+    if (lastVisit !== today) {
+      fetch("/api/track-visite", { method: "POST" }).catch((err) =>
+        console.error("Visit tracking failed:", err)
+      );
+
+      localStorage.setItem("lastVisit", today);
+    }
+  }, []);
   return (
     <section className="w-full py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
@@ -74,7 +86,9 @@ export default function HeroSectionPage() {
             <span>Resume</span> <MoveRight className="w-6" />
           </Button>
         </div>
-        <Profile />
+        <Suspense fallback={<ProfileSkeleton />}>
+          <Profile />
+        </Suspense>
       </div>
     </section>
   );

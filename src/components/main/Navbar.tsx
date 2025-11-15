@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import VisitCounter from "../ui/visite-counter";
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -47,7 +48,8 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-center space-x-2">
+              <VisitCounter />
               {mounted && (
                 <Button
                   variant="ghost"
