@@ -69,7 +69,7 @@ export default function HeroSectionPage() {
                 Twitter
               </Button>
             </Link>
-            <Link href="https://github.com/vishalkumar12323" target="_blank">
+            <Link href="https://github.com/vishalkumar12323" target="__blank">
               <Button
                 variant="outline"
                 className="cursor-pointer shadow-sm hover:drop-shadow-lg"
@@ -79,12 +79,14 @@ export default function HeroSectionPage() {
               </Button>
             </Link>
           </div>
-          <Button
-            variant={"outline"}
-            className="px-6 py-4 text-md rounded-sm overflow-hidden relative z-10 cursor-pointer shadow-sm hover:drop-shadow-lg"
-          >
-            <span>Resume</span> <MoveRight className="w-6" />
-          </Button>
+          <Link href="/resume.pdf" target="__blank">
+            <Button
+              variant={"outline"}
+              className="px-6 py-4 text-md rounded-sm overflow-hidden relative z-10 cursor-pointer shadow-sm hover:drop-shadow-lg"
+            >
+              <span>Resume</span> <MoveRight className="w-6" />
+            </Button>
+          </Link>
         </div>
         <Suspense fallback={<ProfileSkeleton />}>
           <Profile />
