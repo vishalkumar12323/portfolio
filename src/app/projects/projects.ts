@@ -37,28 +37,6 @@ export type TProjectProps = {
 
 export const projectData: TProjectProps[] = [
   {
-    id: "6",
-    name: "Chatting App (Slack-Lite)",
-    src: [chat_1, chat_2, chat_3, chat_4],
-    description:
-      "Slack-Lite is a simplified version of Slack that enables teams to communicate in real-time through organized channels. Users can register, log in, create or join channels, send messages, and see who's currently online. The application uses WebSocket technology for instant message delivery and presence updates, providing a seamless chat experience.",
-
-    liveLink: "",
-    githubLink: "https://github.com/vishalkumar12323/chat-app",
-    tech: [
-      "React+Vite",
-      "Zustand",
-      "Axios",
-      "Socket.IO client",
-      "Node.js",
-      "Express.js",
-      "Socket.io",
-      "JWT",
-      "Sequelize + PostgreSQL",
-    ],
-  },
-
-  {
     id: "1",
     name: "hotel management platform",
     src: [photo1, photo1_1, photo1_2, photo1_3],
@@ -118,5 +96,26 @@ export const projectData: TProjectProps[] = [
     liveLink: "https://bookit-gilt-six.vercel.app/",
     githubLink: "https://github.com/vishalkumar12323/bookit",
     tech: ["Next.js + Typescript", "Axios", "PostgreSQL", "TailwindCss"],
+  },
+  {
+    id: "6",
+    name: "Chatting App (Slack-Lite)",
+    src: [chat_1, chat_2, chat_3, chat_4],
+    description:
+      "Slack-Lite is a simplified version of Slack that enables teams to communicate in real-time through organized channels. Users can register, log in, create or join channels, send messages, and see who's currently online. The application uses WebSocket technology for instant message delivery and presence updates, providing a seamless chat experience.",
+
+    liveLink: "",
+    githubLink: "https://github.com/vishalkumar12323/chat-app",
+    tech: [
+      "React+Vite",
+      "Zustand",
+      "Axios",
+      "Socket.IO client",
+      "Node.js",
+      "Express.js",
+      "Socket.io",
+      "JWT",
+      "Sequelize + PostgreSQL",
+    ],
   },
 ];

@@ -5,6 +5,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, MoveRight } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Archivo_Black } from "next/font/google"
+
+
+const archivo_black = Archivo_Black({
+  weight: "400"
+});
 
 const Profile = lazy(() => import("@/components/main/profile"));
 
@@ -21,8 +27,9 @@ export default function HeroSectionPage() {
         <div className="md:max-w-[600px] flex-1 text-center md:text-left">
           <p className="text-xl text-muted-foreground mb-2">Hello 👋</p>
           <h1
+          style={{zoom: 1.4}}
             className={
-              "text-3xl sm:text-5xl md:text-6xl font-[900] px-0 py-4 bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800"
+              `${archivo_black.className} text-2xl sm:text-3xl md:text-4xl font-[900] px-0 py-4 bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800`
             }
           >
             I&apos;m Vishal Kumar

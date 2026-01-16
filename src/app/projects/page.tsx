@@ -2,11 +2,12 @@ import { Metadata } from "next";
 import { projectData } from "./projects";
 import Image from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: "My Projects",
   description: "Some intersting projects, I've done",
   authors: [
     { name: "Vishal Kumar", url: "https://github.com/vishalkumar12323" },
@@ -30,22 +31,31 @@ export default function ProjectPage() {
         </p>
       </div>
 
-      <div className="py-6 mt-6 grid grid-cols-1 place-items-center md:place-items-baseline gap-y-10 md:gap-10 md:grid-cols-2">
+      <div className="seprater-line relative max-w-[1200px] mx-auto ">
         {projectData.map((p) => (
-          <Link
-            href={`/projects/${p.id}`}
-            key={p.id}
-            className="hover:scale-105 rounded-lg  drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500"
-          >
-            <Image
-              src={p.src[0]}
-              alt={p.name}
-              width={600}
-              className="h-[300px] object-cover rounded-lg"
-            />
-          </Link>
+          <div className={`box ${Number(p.id) % 2 !== 0 ? "left" : "right"}`} key={p.id}>
+            <Link
+              href={`/projects/${p.id}`}
+              key={p.id}
+              className="hover:scale-105 rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500"
+            >
+              <Image
+                src={p.src[0]}
+                alt={p.name}
+                width={600}
+                className="h-[300px] object-cover rounded-lg"
+              />
+            </Link>
+          </div>
         ))}
+        {/* <div className="box left">
+          <div className="content">
+            <h2>2017</h2>
+            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
+          </div>
+        </div> */}
       </div>
     </section>
   );
 }
+

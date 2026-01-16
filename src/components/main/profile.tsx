@@ -13,7 +13,7 @@ export default function Profile() {
         alt="Vishal Kumar"
         width={"400"}
         height={"400"}
-        className="mx-auto relative z-10 rounded-full object-cover shadow-sm"
+        className="mx-auto w-auto h-auto relative z-10 rounded-full object-cover shadow-sm"
       />
     </div>
   );
