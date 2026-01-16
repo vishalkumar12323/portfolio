@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Github, Linkedin, Twitter, MoveRight } from "lucide-react";
@@ -15,17 +15,6 @@ const ProfileSkeleton = () => (
 );
 
 export default function HeroSectionPage() {
-  useEffect(() => {
-    const lastVisit = localStorage.getItem("lastVisit");
-    const today = new Date().toISOString().split("T")[0];
-    if (lastVisit !== today) {
-      fetch("/api/track-visite", { method: "POST" }).catch((err) =>
-        console.error("Visit tracking failed:", err)
-      );
-
-      localStorage.setItem("lastVisit", today);
-    }
-  }, []);
   return (
     <section className="w-full py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-between gap-8">
