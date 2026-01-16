@@ -1,6 +1,17 @@
+import { Metadata } from "next";
 import { projectData } from "./projects";
 import Image from "next/image";
 import Link from "next/link";
+
+
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Some intersting projects, I've done",
+  authors: [
+    { name: "Vishal Kumar", url: "https://github.com/vishalkumar12323" },
+  ],
+};
 
 export default function ProjectPage() {
   return (

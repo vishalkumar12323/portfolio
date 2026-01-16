@@ -6,7 +6,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { skills } from "@/lib/data";
+import { Metadata } from "next";
 import { IconType } from "react-icons";
+
+export const metadata: Metadata = {
+  title: "Technical Skills",
+  description: "My professional skills",
+  authors: [
+    { name: "Vishal Kumar", url: "https://github.com/vishalkumar12323" },
+  ],
+};
+
 
 export default function ExperiencePage() {
   return (

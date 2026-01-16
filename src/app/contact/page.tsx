@@ -3,6 +3,15 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MoveRight } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Connect with me, if you'd like to work with me",
+  authors: [
+    { name: "Vishal Kumar", url: "https://github.com/vishalkumar12323" },
+  ],
+}
 
 export default function ContactPage() {
   return (
