@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { projectData } from "./projects";
 import Image from "next/image";
 import Link from "next/link";
-import clsx from "clsx";
 
 
 
@@ -31,7 +30,7 @@ export default function ProjectPage() {
         </p>
       </div>
 
-      <div className="seprater-line relative max-w-[1200px] mx-auto ">
+      <div className="seprater-line relative max-w-[1200px] mx-auto">
         {projectData.map((p) => (
           <div className={`box ${Number(p.id) % 2 !== 0 ? "left" : "right"}`} key={p.id}>
             <Link
@@ -48,12 +47,6 @@ export default function ProjectPage() {
             </Link>
           </div>
         ))}
-        {/* <div className="box left">
-          <div className="content">
-            <h2>2017</h2>
-            <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
-          </div>
-        </div> */}
       </div>
     </section>
   );
