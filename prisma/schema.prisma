@@ -1,17 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
 }
 
-model Visit {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  ipAddress String?
-  createdAt DateTime @default(now())
+model Projects {
+  id              String   @id @default(uuid()) @map("_id") @db.Uuid
+  projectName     String   @map("project_name")
+  projectImages   String[] @map("project_images")
+  description     String
+  liveProjectLink String   @map("live_project_link")
+  githubLink      String   @map("github_link")
+  tech            String[] @map("technologies")
 
-  @@index([ipAddress, createdAt])
-  @@map("visits")
+  statsId     String @db.Uuid
+  githubStats Stats  @relation(fields: [statsId], references: [id])
+
+  @@map("projects")
+}
+
+model Stats {
+  id            String   @id @default(uuid()) @map("_id") @db.Uuid
+  commitId      String   @map("commit_id")
+  commitMessage String   @map("commit_message")
+  commitUrl     String   @map("commit_url")
+  timestamp     DateTime @map("timestamp")
+
+  createdAt DateTime   @map("created_at")
+  projects  Projects[]
+
+  @@map("stats")
 }
