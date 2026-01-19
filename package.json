@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^7.2.0",
+    "@prisma/client": "6.19",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.2.3",
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.515.0",
     "next": "15.3.8",
@@ -25,13 +26,14 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@octokit/webhooks-types": "^7.6.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
-    "prisma": "^7.2.0",
+    "prisma": "6.19",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"

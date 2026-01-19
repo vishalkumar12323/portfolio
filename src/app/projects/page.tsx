@@ -36,7 +36,7 @@ export default function ProjectPage() {
             <Link
               href={`/projects/${p.id}`}
               key={p.id}
-              className="hover:scale-105 rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500"
+              className="rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500 overlay"
             >
               <Image
                 src={p.src[0]}

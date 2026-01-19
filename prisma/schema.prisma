@@ -11,6 +11,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Projects {
@@ -35,7 +36,7 @@ model Stats {
   commitUrl     String   @map("commit_url")
   timestamp     DateTime @map("timestamp")
 
-  createdAt DateTime   @map("created_at")
+  createdAt DateTime   @default(now()) @map("created_at")
   projects  Projects[]
 
   @@map("stats")

@@ -9,7 +9,7 @@ export default function Profile() {
         }
       />
       <Image
-        src="/profile.png"
+        src="/profile.webp"
         alt="Vishal Kumar"
         width={"400"}
         height={"400"}
