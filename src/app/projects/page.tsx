@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { projectData } from "./projects";
+import { projectData } from "../../../projects";
 import Image from "next/image";
 import Link from "next/link";
 

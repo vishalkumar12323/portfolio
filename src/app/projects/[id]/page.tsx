@@ -1,4 +1,4 @@
-import { TProjectProps, projectData } from "../projects";
+import { TProjectProps, projectData } from "../../../../projects";
 import {
   CardContent,
   CardAction,

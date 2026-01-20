@@ -15,22 +15,22 @@ datasource db {
 }
 
 model Projects {
-  id              String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
   projectName     String   @map("project_name")
   projectImages   String[] @map("project_images")
   description     String
-  liveProjectLink String   @map("live_project_link")
+  liveProjectLink String?  @map("live_project_link")
   githubLink      String   @map("github_link")
   tech            String[] @map("technologies")
 
-  statsId     String @db.ObjectId
-  githubStats Stats  @relation(fields: [statsId], references: [id])
+  statsId String? @db.ObjectId
+  stats   Stats?  @relation(fields: [statsId], references: [id])
 
   @@map("projects")
 }
 
 model Stats {
-  id            String   @id @default(uuid()) @map("_id") @db.ObjectId
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
   commitId      String   @map("commit_id")
   commitMessage String   @map("commit_message")
   commitUrl     String   @map("commit_url")
