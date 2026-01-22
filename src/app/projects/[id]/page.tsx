@@ -1,4 +1,4 @@
-import { TProjectProps, projectData } from "../../../../projects";
+import { TProjectProps } from "@/lib/utils";
 import {
   CardContent,
   CardAction,
@@ -17,17 +17,18 @@ export default async function ProjectModel({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project: TProjectProps = projectData.find((p) => p.id === id)!;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloude-projects/${id}`)
+  const project: TProjectProps = await response.json();
   return (
     <div className="p-4">
       <CardHeader className="pb-3 px-0">
         <CardTitle className="md:text-xl font-normal capitalize bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800 leading-[25px]">
-          {project.name}
+          {project.projectName}
         </CardTitle>
       </CardHeader>
       <hr className="mb-3 dark:bg-gray-500 bg-gray-700" />
       <CardContent className="px-0">
-        <ImageCarousel images={project.src} alt={project.name} />
+        <ImageCarousel images={project.projectImages} alt={project.projectName} />
 
         <CardDescription className="text-[14px] md:text-[16px] mb-3">
           {project.description}
@@ -49,7 +50,7 @@ export default async function ProjectModel({
       </CardContent>
 
       <CardAction className="justify-self-start space-x-2">
-        <Link href={project.liveLink ?? "#"}>
+        <Link href={project.liveProjectLink ?? "#"}>
           <Button
             variant={"outline"}
             className="rounded-sm border-gray-400 cursor-pointer shadow hover:shadow-lg transition-shadow capitalize"

@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -10,7 +10,7 @@ export const ImageCarousel = ({
   images,
   alt,
 }: {
-  images: StaticImageData[];
+  images: string[];
   alt: string;
 }) => {
   return (
@@ -21,6 +21,9 @@ export const ImageCarousel = ({
             <Image
               alt={alt}
               src={img}
+              width={1000}
+              height={1000}
+              loading="eager"
               className={`w-full object-cover rounded-md mb-3`}
             />
           </CarouselItem>

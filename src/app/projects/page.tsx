@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import { projectData } from "../../../projects";
 import Image from "next/image";
 import Link from "next/link";
+import { TProjectProps } from "@/lib/utils"
 
 
 
@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function ProjectPage() {
+export default async function ProjectPage() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloude-projects`);
+  const projects: TProjectProps[] = await response.json();
   return (
     <section>
       <div className="project-heading after:bg-gray-700 after:mb-3 dark:after:bg-gray-400 text-center mt-5 mb-4 text-[20px] md:text-4xl md:mt-8 font-bold relative bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800">
@@ -31,17 +33,18 @@ export default function ProjectPage() {
       </div>
 
       <div className="seprater-line relative max-w-[1200px] mx-auto">
-        {projectData.map((p) => (
-          <div className={`box ${Number(p.id) % 2 !== 0 ? "left" : "right"}`} key={p.id}>
+        {projects.map((p, idx) => (
+          <div className={`box ${(idx + 1) % 2 !== 0 ? "left" : "right"}`} key={p.id}>
             <Link
               href={`/projects/${p.id}`}
               key={p.id}
               className="rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500 overlay"
             >
               <Image
-                src={p.src[0]}
-                alt={p.name}
+                src={p.projectImages[0]}
+                alt={p.projectName}
                 width={600}
+                height={600}
                 className="h-[300px] object-cover rounded-lg"
               />
             </Link>
