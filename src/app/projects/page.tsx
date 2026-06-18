@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectPage() {
-  const projects = await prisma.projects.findMany({ include: { stats: { select: { commitMessage: true, timestamp: true } } } }) as unknown as TProjectProps[];
+  const projects = await prisma.projects.findMany({ include: { stats: { select: { commitMessage: true, timestamp: true } } } }) as TProjectProps[];
   return (
     <section>
       <div className="project-heading after:bg-gray-700 after:mb-3 dark:after:bg-gray-400 text-center mt-5 mb-4 text-[20px] md:text-4xl md:mt-8 font-bold relative bg-clip-text text-transparent dark:bg-gradient-to-b dark:from-white dark:to-neutral-400 bg-gradient-to-b from-black to-neutral-800">

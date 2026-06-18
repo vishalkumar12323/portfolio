@@ -20,7 +20,7 @@ export default async function ProjectModel({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = await prisma.projects.findFirst({ where: { id } }) as unknown as TProjectProps;
+  const project = await prisma.projects.findFirst({ where: { id } }) as TProjectProps;
   return (
     <div className="p-4">
       <CardHeader className="pb-3 px-0">
