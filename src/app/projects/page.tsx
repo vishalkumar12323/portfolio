@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { TProjectProps } from "@/lib/utils"
+import { IoLogoGithub, IoIosGitMerge } from "react-icons/io";
 
 
 
@@ -38,16 +39,23 @@ export default async function ProjectPage() {
             <Link
               href={`/projects/${p.id}`}
               key={p.id}
-              className="rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500 overlay"
+              className="rounded-lg drop-shadow-2xl dark:shadow-gray-800/80 transition-transform duration-500"
             >
               <Image
                 src={p.projectImages[0]}
                 alt={p.projectName}
-                width={600}
-                height={600}
+                width={650}
+                height={650}
                 className="h-[300px] object-cover rounded-lg"
               />
             </Link>
+            <div className="overlay rounded-b-lg">
+              <div className="w-full flex flex-col justify-center items-start gap-2.5">
+                <Link href={"#"} className="flex gap-2 items-center bg-[#22262b] rounded-full p-1.5"><IoLogoGithub size={18} /> vishalkumar12323/portfolio</Link>
+                <Link href={"#"} className="hover:underline hover:cursor-pointer px-1">integrating github webhooks</Link>
+                <p className="flex items-center gap-0.5 px-1">Jan 19 on <IoIosGitMerge size={18} /> <Link href={"#"} className="hover:underline cursor-pointer">main</Link> </p>
+              </div>
+            </div>
           </div>
         ))}
       </div>

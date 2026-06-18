@@ -156,6 +156,7 @@
     position: relative;
     background-color: inherit;
     width: 50%;
+    overflow: hidden;
   }
 
   .box::after {
@@ -209,44 +210,43 @@
     left: -16px;
   }
 
-  /* .left:hover .overlay::after {
-    --accent: #1b1b1b;
-    content: "";
+  .box .overlay {
     position: absolute;
-    top: 0;
-    left: 107%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--accent);
-    border-radius: 4px;
-    animation: expand-overlay 1s normal;
-    transition: all 3ms linear;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    margin: 30px 20px;
   }
 
-  .right:hover .overlay::after {
-    --accent: #1b1b1b;
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 107%;
-    width: 100%;
-    height: 100%;
-    background-color: var(--accent);
-    border-radius: 4px;
-    animation: expand-overlay 1s normal;
-    transition: all 3ms linear;
+  .box:hover .overlay {
+    height: 50%;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out forwards;
   }
 
 
-  @keyframes expand-overlay {
+  @keyframes fadeIn {
     from {
-      width: 0%;
+      opacity: 0;
+      transform: translateY(10px);
     }
 
     to {
-      width: 100%;
+      opacity: 1;
+      transform: translateY(0);
     }
-  } */
+  }
 
   @media screen and (max-width: 768px) {
     .seprater-line::after {
