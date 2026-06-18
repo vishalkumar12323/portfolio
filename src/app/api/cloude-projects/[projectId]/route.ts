@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 
-export const GET = async (_req: NextRequest, { params }: { params: { projectId: string } }) => {
-    const projectId = params.projectId;
+export const GET = async (_req: NextRequest, { params }: { params: Promise<{ projectId: string }> }) => {
+    const { projectId } = await params;
 
     if (!projectId) return NextResponse.json({ message: "Project not found" }, { status: 404 });
 
