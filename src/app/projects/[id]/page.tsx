@@ -1,4 +1,3 @@
-import { TProjectProps } from "@/lib/utils";
 import {
   CardContent,
   CardAction,
@@ -10,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { ImageCarousel } from "@/components/main/image-carousel";
+import { getProjectById } from "@/lib/projects";
+import { notFound } from "next/navigation";
 
 export default async function ProjectModel({
   params,
@@ -17,8 +18,8 @@ export default async function ProjectModel({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloude-projects/${id}`)
-  const project: TProjectProps = await response.json();
+  const project = await getProjectById(id);
+  if (!project) notFound();
   return (
     <div className="p-4">
       <CardHeader className="pb-3 px-0">
