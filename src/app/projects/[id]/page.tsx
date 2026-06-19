@@ -10,9 +10,6 @@ import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 import { ImageCarousel } from "@/components/main/image-carousel";
-import { prisma } from "@/lib/prisma";
-
-export const dynamic = "force-dynamic";
 
 export default async function ProjectModel({
   params,
@@ -20,7 +17,8 @@ export default async function ProjectModel({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = await prisma.projects.findFirst({ where: { id } }) as TProjectProps;
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/cloude-projects/${id}`)
+  const project: TProjectProps = await response.json();
   return (
     <div className="p-4">
       <CardHeader className="pb-3 px-0">
