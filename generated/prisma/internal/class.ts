@@ -47,6 +47,7 @@ const config: runtime.GetPrismaClientConfig = {
     "db"
   ],
   "activeProvider": "mongodb",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -55,8 +56,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Projects {\n  id              String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  projectName     String   @map(\"project_name\")\n  projectImages   String[] @map(\"project_images\")\n  description     String\n  liveProjectLink String?  @map(\"live_project_link\")\n  githubLink      String   @map(\"github_link\")\n  tech            String[] @map(\"technologies\")\n\n  statsId String? @db.ObjectId\n  stats   Stats?  @relation(fields: [statsId], references: [id])\n\n  @@map(\"projects\")\n}\n\nmodel Stats {\n  id            String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  commitId      String   @map(\"commit_id\")\n  commitMessage String   @map(\"commit_message\")\n  commitUrl     String   @map(\"commit_url\")\n  timestamp     DateTime @map(\"timestamp\")\n\n  createdAt DateTime   @default(now()) @map(\"created_at\")\n  projects  Projects[]\n\n  @@map(\"stats\")\n}\n",
-  "inlineSchemaHash": "0473d795c9ec6af8377ebf4fe1ba67ae51ffa75034601b5466ba32b8142e91da",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../generated/prisma\"\n  // binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Projects {\n  id              String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  projectName     String   @map(\"project_name\")\n  projectImages   String[] @map(\"project_images\")\n  description     String\n  liveProjectLink String?  @map(\"live_project_link\")\n  githubLink      String   @map(\"github_link\")\n  tech            String[] @map(\"technologies\")\n\n  statsId String? @db.ObjectId\n  stats   Stats?  @relation(fields: [statsId], references: [id])\n\n  @@map(\"projects\")\n}\n\nmodel Stats {\n  id            String   @id @default(auto()) @map(\"_id\") @db.ObjectId\n  commitId      String   @map(\"commit_id\")\n  commitMessage String   @map(\"commit_message\")\n  commitUrl     String   @map(\"commit_url\")\n  timestamp     DateTime @map(\"timestamp\")\n\n  createdAt DateTime   @default(now()) @map(\"created_at\")\n  projects  Projects[]\n\n  @@map(\"stats\")\n}\n",
+  "inlineSchemaHash": "d174fd0b945d737f2afbbacad4ca4d65d611aebd4f9e99c46862eb61ce9bd628",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},
