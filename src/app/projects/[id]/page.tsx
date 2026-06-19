@@ -12,6 +12,8 @@ import { ImageCarousel } from "@/components/main/image-carousel";
 import { getProjectById } from "@/lib/projects";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProjectModel({
   params,
 }: {

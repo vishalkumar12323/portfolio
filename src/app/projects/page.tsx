@@ -4,6 +4,7 @@ import Link from "next/link";
 import { IoLogoGithub, IoIosGitMerge } from "react-icons/io";
 import { getAllProjects } from "@/lib/projects";
 
+export const dynamic = "force-dynamic";
 
 
 export const metadata: Metadata = {
