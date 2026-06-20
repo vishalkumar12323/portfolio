@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+// import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 // import { isPushEvent, verifySignature } from "./utils"
 // import { prisma } from "@/lib/prisma";
@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 
 
 
-export const POST = async (req: NextRequest) => {
+export const POST = async () => {
     // const secret = process.env.WEBHOOK_SECRET;
     // const signature = req.headers.get("x-hub-signature-256") || '';
     // const rawBody = await req.text();
