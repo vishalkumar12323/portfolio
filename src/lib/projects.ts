@@ -1,20 +1,35 @@
-import { prisma } from "@/lib/prisma";
-import { TProjectProps } from "@/lib/utils";
+import Project from "@/models/Project";
+import { IProject } from "@/models/Project";
+import { connectDB } from "@/lib/mongodb";
 
-export async function getAllProjects(): Promise<TProjectProps[]> {
-  const projects = await prisma.projects.findMany({
-    include: {
-      stats: { select: { commitMessage: true, timestamp: true } },
-    },
-  });
+// Maps a raw MongoDB document (snake_case fields from Prisma) to the IProject interface
+function toProject(doc: any): IProject {
+  return {
+    id: doc._id.toString(),
+    projectName: doc.project_name,
+    projectImages: doc.project_images ?? [],
+    description: doc.description,
+    liveProjectLink: doc.live_project_link ?? undefined,
+    githubLink: doc.github_link,
+    tech: doc.technologies ?? [],
+    statsId: doc.statsId,
+  };
+}
 
-  return projects as unknown as TProjectProps[];
+export async function getAllProjects(): Promise<IProject[]> {
+  await connectDB();
+  const projects = await Project.find({}).lean();
+
+  return projects.map(toProject);
 }
 
 export async function getProjectById(
   id: string
-): Promise<TProjectProps | null> {
-  const project = await prisma.projects.findFirst({ where: { id } });
+): Promise<IProject | null> {
+  await connectDB();
+  const project = await Project.findById(id).lean();
 
-  return project as unknown as TProjectProps | null;
+  if (!project) return null;
+
+  return toProject(project);
 }
