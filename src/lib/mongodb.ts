@@ -1,16 +1,25 @@
 import mongoose from "mongoose";
 
+interface MongooseCache {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
+}
+
+declare global {
+    var mongoose: MongooseCache | undefined;
+}
+
 const MONGODB_URI = process.env.DATABASE_URL;
 
 if (!MONGODB_URI) {
     throw new Error("Please add MONGODB_URL to .env.");
-};
+}
 
-let cached = (global as any).mongoose;
+const cached: MongooseCache = global.mongoose ?? { conn: null, promise: null };
 
-if (!cached) {
-    cached = (global as any).mongoose = { conn: null, promise: null };
-};
+if (!global.mongoose) {
+    global.mongoose = cached;
+}
 
 export async function connectDB() {
     if (cached.conn) return cached.conn;
