@@ -23,7 +23,7 @@ const StatSchema = new Schema(
   }
 );
 
-const Stat: Model<any> =
-  mongoose.models.Stat || mongoose.model("Stat", StatSchema);
+const Stat: Model<IStat> =
+  mongoose.models.Stat || mongoose.model<IStat>("Stat", StatSchema);
 
 export default Stat;

@@ -27,8 +27,8 @@ const ProjectSchema = new Schema(
   }
 );
 
-const Project: Model<any> =
+const Project: Model<IProject> =
   mongoose.models.Project ||
-  mongoose.model("Project", ProjectSchema);
+  mongoose.model<IProject>("Project", ProjectSchema);
 
 export default Project;
