@@ -1,7 +1,6 @@
 // import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 // import { isPushEvent, verifySignature } from "./utils"
-// import { prisma } from "@/lib/prisma";
 
 
 
